@@ -40,7 +40,7 @@ jobs:
 
       - name: Build AAR
         run: |
-          git clone https://github.com/Mythologyli/zju-connect.git
+          git clone https://github.com/HardConnecter/HardConnect.git
           cd zju-connect
           go mod download
           go install golang.org/x/mobile/cmd/gomobile@latest
