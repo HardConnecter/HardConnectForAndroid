@@ -69,7 +69,7 @@ jobs:
           echo y | ${CMDLINE_TOOLS_ROOT}/sdkmanager "ndk;${NDK_LTS_VERSION}"
           sudo apt install -y --no-install-recommends g++ libc6-dev
           gomobile init
-          gomobile bind -target=android -o "https://github.com/HardConnecter/HardConnect/releases/download/0.0.1/zju-connect.aar" ./mobile
+          gomobile bind -target=android -o build_assets/zju-connect.aar ./mobile
           cp build_assets/zju-connect* ../app/libs/
 
       - name: Build APK
