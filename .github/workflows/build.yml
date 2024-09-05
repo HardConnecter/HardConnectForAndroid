@@ -74,6 +74,9 @@ jobs:
           mkdir -p app/libs  # 确保目录存在
           curl -L -o app/libs/zju-connect.aar https://github.com/HardConnecter/HardConnect/releases/download/0.0.1/zju-connect.aar
 
+      - name: List files in app/libs
+        run: ls -lah app/libs/
+
 
       - name: Build APK
         run: |
