@@ -71,8 +71,9 @@ jobs:
           # gomobile init
           # gomobile bind -target=android -o build_assets/zju-connect.aar ./mobile
           # cp build_assets/zju-connect* ../app/libs/
-          mkdir -p app/libs  # 确保目录存在
-          curl -L -o app/libs/zju-connect.aar https://github.com/HardConnecter/HardConnect/releases/download/0.0.1/zju-connect.aar
+          # mkdir -p app/libs  # 确保目录存在
+          curl -L -o ../app/libs/zju-connect.aar https://github.com/HardConnecter/HardConnect/releases/download/0.0.1/zju-connect.aar
+          curl -L -o ../app/libs/zju-connect-sources.jar https://github.com/HardConnecter/HardConnect/releases/download/0.0.1/zju-connect-sources.jar
 
       - name: List files in app/libs
         run: ls -lah app/libs/
