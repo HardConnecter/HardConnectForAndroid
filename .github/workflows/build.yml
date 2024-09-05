@@ -68,9 +68,12 @@ jobs:
           echo y | ${CMDLINE_TOOLS_ROOT}/sdkmanager "platforms;android-${ANDROID_PLATFORM_VERSION}"
           echo y | ${CMDLINE_TOOLS_ROOT}/sdkmanager "ndk;${NDK_LTS_VERSION}"
           sudo apt install -y --no-install-recommends g++ libc6-dev
-          gomobile init
-          gomobile bind -target=android -o build_assets/zju-connect.aar ./mobile
-          cp build_assets/zju-connect* ../app/libs/
+          # gomobile init
+          # gomobile bind -target=android -o build_assets/zju-connect.aar ./mobile
+          # cp build_assets/zju-connect* ../app/libs/
+          mkdir -p app/libs  # 确保目录存在
+          curl -L -o app/libs/zju-connect.aar https://github.com/HardConnecter/HardConnect/releases/download/0.0.1/zju-connect.aar
+
 
       - name: Build APK
         run: |
