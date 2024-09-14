@@ -45,7 +45,7 @@ public class MyVpnService extends VpnService {
 
             localBroadcastManager.sendBroadcast(new Intent("cx.myth.zjuconnect.LOGIN_SUCCEEDED"));
 
-            Builder builder = new Builder().addAddress(ip, 8).addRoute("10.0.0.0", 8).addDnsServer("202.120.224.6").setMtu(1400);
+            Builder builder = new Builder().addAddress(ip, 8).addRoute("10.0.0.0", 8).addDnsServer("114.114.114.114").setMtu(1400);
             tun = builder.establish();
 
             executors.submit(() -> {
