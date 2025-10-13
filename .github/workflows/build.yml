@@ -7,6 +7,7 @@ on:
   pull_request:
     types:
       - opened
+  workflow_dispatch:
 
 permissions: write-all
 
@@ -102,7 +103,7 @@ jobs:
 
       - name: Upload artifact
         if: github.event_name != 'release'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: HardConnectForAndroid
           path: HardConnectForAndroid.apk
