@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.VpnService;
 import android.os.ParcelFileDescriptor;
+import android.widget.Toast;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -36,6 +37,10 @@ public class MyVpnService extends VpnService {
         mPrefs.registerOnSharedPreferenceChangeListener(mListener);
 
         new Thread(() -> {
+            if (intent == null) {
+                Toast.makeText(getApplicationContext(), "Intent为null!", Toast.LENGTH_LONG).show();
+                return;
+            }
             String ip = Mobile.login(intent.getStringExtra("server"), intent.getStringExtra("username"), intent.getStringExtra("password"));
             if (ip.isEmpty()) {
                 mEditor.putString("tile_state", "cx.myth.zjuconnect.LOGIN_FAILED");

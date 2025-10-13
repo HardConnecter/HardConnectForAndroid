@@ -40,7 +40,13 @@ public class HCTileService extends TileService {
             mPrefs.registerOnSharedPreferenceChangeListener(mListener);
             registered = true;
         }
-        getQsTile().updateTile();
+        Tile tile = getQsTile();
+        if (MainActivity.isRunning) {
+            tile.setState(Tile.STATE_ACTIVE);
+        } else {
+            tile.setState(Tile.STATE_INACTIVE);
+        }
+        tile.updateTile();
     }
 
     @Override
@@ -62,6 +68,13 @@ public class HCTileService extends TileService {
             mPrefs.registerOnSharedPreferenceChangeListener(mListener);
             registered = true;
         }
+        Tile tile = getQsTile();
+        if (MainActivity.isRunning) {
+            tile.setState(Tile.STATE_ACTIVE);
+        } else {
+            tile.setState(Tile.STATE_INACTIVE);
+        }
+        tile.updateTile();
     }
 
     @Override
